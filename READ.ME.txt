@@ -1,0 +1,2 @@
+Unzip this folder into your C:\ root directory for optimum performance, especially on Windows Vista.
+
