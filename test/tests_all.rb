@@ -78,8 +78,14 @@ class TestID3A < Test::Unit::TestCase
 		assert_equal 'Yes ', @id3.eval(["Rain ","Mild","High ","Weak"])
 		assert_equal 'Yes ', @id3.eval(["Rain ","Cool","Normal ","Weak"])
 		assert_equal 'No ', @id3.eval(["Rain ","Cool","Normal ","Strong"])
-		assert_equal 'Yes ', @id3.eval("Overcast ","Cool","Normal ","Strong"])
-		
+		assert_equal 'Yes ', @id3.eval(["Overcast ","Cool","Normal ","Strong"])
+		assert_equal 'No ', @id3.eval(["Sunny ","Mild","High ","Weak"])
+		assert_equal 'Yes ', @id3.eval(["Sunny ","Cool","Normal ","Weak"])
+		assert_equal 'Yes ',@id3.eval(["Rain ","Mild","Normal ","Weak"])
+		assert_equal 'Yes ', @id3.eval(["Sunny ","Mild","Normal ","Strong"])
+		assert_equal 'Yes ', @id3.eval(["Overcast ","Mild","High ","Strong"])
+		assert_equal 'Yes ', @id3.eval(["Overcast ","Hot","Normal ","Weak"])
+		assert_equal 'No', @id3.eval(["Rain ","Mild","High ","Strong"])
 	end
 	
 end
