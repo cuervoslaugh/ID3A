@@ -6,6 +6,7 @@ require 'ai4r'
 require 'fox16'
 require 'functions'
 require 'menu_bar'
+
 include Fox
 include Ai4r
 include Classifiers

@@ -1,7 +1,10 @@
 module AppMenuBar
 
 	def add_menu_bar
+		# Everything starts off with a menubar root.
+		
 		menu_bar = FXMenuBar.new(self, LAYOUT_SIDE_TOP|LAYOUT_LEFT)
+		
 		# File Column
 		file_menu = FXMenuPane.new(self)
 		FXMenuTitle.new(menu_bar, "&File", :popupMenu => file_menu)
