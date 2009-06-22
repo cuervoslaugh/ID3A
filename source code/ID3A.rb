@@ -1,3 +1,7 @@
+# !/usr/bin/ruby
+# ID3A.rb
+
+
 require 'rubygems'
 require 'ai4r'
 require 'fox16'
