@@ -1,4 +1,4 @@
-# This file will hold all of the funcctions called by the ID3 app.
+# This file will hold all of the functions called by the ID3 app.
 # This should assist in cleaning up the source code to a point of 
 # legibility. At least it's a start ;-)
 
@@ -64,7 +64,8 @@ module ID3Functions
 		def save_ruleset
 			save_file_name = FXInputDialog.getString("Name for Ruleset", self, "Rules", "File Name:")
 			begin
-			save_file_name = save_file_name + ".rules"
+			puts Dir.getwd
+			save_file_name = "../rulesets/" + save_file_name + ".rules"
 			rescue
 				answer = FXMessageBox.warning(self,
 				MBOX_OK,

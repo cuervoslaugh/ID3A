@@ -6,12 +6,14 @@ require 'ai4r'
 require 'fox16'
 require 'functions'
 require 'menu_bar'
+require 'batch_query'
 
 include Fox
 include Ai4r
 include Classifiers
 include ID3Functions
 include AppMenuBar
+include BatchQuery
 
 class ID3Window < FXMainWindow
 
@@ -19,7 +21,7 @@ class ID3Window < FXMainWindow
 	def initialize(app)
 		super(app, "ID3 Analytical Engine", :width => 400, :height => 400)
 		add_menu_bar
-		@details, @bail, @query_rules, @loaded_rules = "", false, false, false
+		@details, @bail, @query_rules, @loaded_rules, @report = "", false, false, false, []
 		create_label
 	end
 	

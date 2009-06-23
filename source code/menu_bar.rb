@@ -80,11 +80,11 @@ module AppMenuBar
 		end
 		inspect_cmd = FXMenuCommand.new(data_menu, "&Inspect Raw Data")
 		inspect_cmd.connect(SEL_COMMAND) do
-		show_me unless @data_set == nil
+			show_me unless @data_set == nil
 		end
 		create_cmd = FXMenuCommand.new(data_menu, "View &Data")
 		create_cmd.connect(SEL_COMMAND) do
-		show_table unless @data_set == nil and @id3 == nil
+			show_table unless @data_set == nil and @id3 == nil
 		end
 		
 		# Analyse Data Menu
@@ -109,6 +109,30 @@ module AppMenuBar
 			query_rules
 		end
 		
+		# Batch Query
+		batch_query_cmd = FXMenuCommand.new(analyse_menu, "&Batch Query")
+		batch_query_cmd.connect(SEL_COMMAND) do
+			dialog = FXFileDialog.new(self, "Import Ruleset")
+			dialog.selectMode = SELECTFILE_EXISTING
+			dialog.patternList = ["Rules Files (*.rules)"]
+			if dialog.execute != 0
+				@ruleset = load_ruleset(dialog.filename)
+			end
+			@label.text = "Ruleset has been imported"
+			dialog = FXFileDialog.new(self, "Load Batch Samples")
+			dialog.selectMode = SELECTFILE_EXISTING
+			dialog.patternList = ["CSV Files (*.csv)"]
+			if dialog.execute != 0
+				load_test_samples(dialog.filename)
+			end
+			@label.text = "Batch test samples loaded. \n Proceeding with processing."
+			eval_test_samples
+			concat_header_results
+			@label.text = "Batch test samples loaded. \n Proceeding with processing." + 
+				"\n Report has been generated."
+			print_report(@report)
+			@label.text = "Report has been saved as: #{@report_name} in the reports folder."
+		end
 		
 	end
 
