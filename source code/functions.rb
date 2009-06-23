@@ -116,8 +116,7 @@ module ID3Functions
 			table.setTableSize(x, y)
 			mainWindow2.create
 			mainWindow2.show(PLACEMENT_SCREEN)
-			table.rowHeaderMode = LAYOUT_FIX_WIDTH
-			table.rowHeaderWidth = 0
+			table.rowHeaderWidth = 1
 			ndex = 0
 			@data_set.data_labels.each do |line|
 				table.setColumnText(ndex, line)
