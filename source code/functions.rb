@@ -64,7 +64,7 @@ module ID3Functions
 		def save_ruleset
 			save_file_name = FXInputDialog.getString("Name for Ruleset", self, "Rules", "File Name:")
 			begin
-			puts Dir.getwd
+#			puts Dir.getwd
 			save_file_name = "../rulesets/" + save_file_name + ".rules"
 			rescue
 				answer = FXMessageBox.warning(self,
